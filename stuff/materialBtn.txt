@@ -1,0 +1,30 @@
+MaterialButton(
+      onPressed: onPressed,
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all<Color>(Colors.orange), // Static background color
+        foregroundColor: MaterialStateProperty.all<Color>(Colors.white), // Static text color
+        padding: MaterialStateProperty.all<EdgeInsetsGeometry>(const EdgeInsets.symmetric(horizontal: 24, vertical: 10)), // Static padding
+        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder( // Static shape with border
+            borderRadius: BorderRadius.circular(20),
+            side: const BorderSide(color: Colors.deepOrange, width: 2),
+          ),
+        ),
+        elevation: MaterialStateProperty.all<double>(3), // Static elevation
+        textStyle: MaterialStateProperty.all<TextStyle>(const TextStyle(fontSize: 18)), // Static text style
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (leadingIcon != null) ...[
+            leadingIcon!,
+            const SizedBox(width: 8),
+          ],
+          Text(text),
+          if (trailingIcon != null) ...[
+            const SizedBox(width: 8),
+            trailingIcon!,
+          ],
+        ],
+      ),
+    );
